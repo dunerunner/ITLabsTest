@@ -1,0 +1,74 @@
+.editable-table {
+  width: 100%;
+  border-radius: 5px;
+  border-collapse: collapse;
+  background: #fff;
+
+  &__wrap {
+    width: 100%;
+  }
+
+  &__controls {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 13px;
+
+
+    &-copy {
+      margin: 0 20px;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 13px;
+      cursor: pointer;
+      color: #fff;
+      background: #1493ff;
+    }
+    &-delete {
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+  }
+
+  &__header {
+    border-radius: 5px 5px 0 0;
+    background: #0a508c;
+
+    th {
+      padding: 0 13px;
+      text-align: left;
+      font: normal 14px/42px sans-serif;
+      color: #a5b5cb;
+    }
+  }
+
+  &__body {
+    border-radius: 0 0 5px 5px;
+
+    td {
+      padding: 0 13px;
+      text-align: left;
+      font: normal 14px/42px sans-serif;
+      border: 1px solid #c8ccd4;
+    }
+  }
+
+  &__row-controls {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  &__row-edit {
+    color: #067ce1;
+  }
+
+  &__row-delete {
+    color: #b02337;
+  }
+}

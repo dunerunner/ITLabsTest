@@ -1,0 +1,14 @@
+.table-edit {
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 45px 30px;
+
+  &__wrap {
+    background: #e5e8ed;
+  }
+
+  &__tables-container {
+    margin-top: 45px;
+  }
+}
