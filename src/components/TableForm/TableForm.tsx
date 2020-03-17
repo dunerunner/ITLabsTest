@@ -54,7 +54,15 @@ const TableForm = (props: any) => {
         return errors;
     };
 
+    const resetFormState = (form: any) => {
+        form.resetFieldState('name');
+        form.resetFieldState('surname');
+        form.resetFieldState('age');
+        form.resetFieldState('city');
+    };
+
     const onSubmit = async (formValues: ITableForm) => {
+        console.log('insubmit triggered');
         if (formValues.rowIndex !== undefined) {
             tablesService.editRow(formValues);
         } else {
@@ -66,7 +74,7 @@ const TableForm = (props: any) => {
             age: '',
             city: '',
             rowIndex: undefined
-        })
+        });
     };
 
     useEffect(() => {
@@ -83,15 +91,15 @@ const TableForm = (props: any) => {
             <Form onSubmit={onSubmit}
                   validate={validate}
                   initialValues={currentRow}
-                  render={({handleSubmit, form}) => (
+                  render={({handleSubmit, form, errors}) => (
                       <form className="table-edit-form"
                             onSubmit={async event => {
                                 await handleSubmit(event);
-                                form.reset();
-                                form.resetFieldState('name');
-                                form.resetFieldState('surname');
-                                form.resetFieldState('age');
-                                form.resetFieldState('city');
+                                if (!Object.keys(errors).length) {
+                                    form.reset();
+                                    resetFormState(form);
+                                }
+
                             }}>
                           <Field
                               name="name"
